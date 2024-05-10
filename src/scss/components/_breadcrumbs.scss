@@ -1,0 +1,76 @@
+.breadcrumbs {
+	ul {
+		display: flex;
+		align-items: center;
+		gap: 0 10px;
+		flex-wrap: nowrap;
+		overflow-x: auto;
+
+		&::-webkit-scrollbar {
+			width: 0;
+			height: 0;
+		}
+
+		li {
+			display: flex;
+			gap: 10px;
+			color: var(--dark);
+			white-space: nowrap;
+
+			@include mw768 {
+				font-size: 14px
+			}
+
+			&:not(:last-child) {
+				a {
+					transition: color 0.2s ease-out;
+
+					&:hover {
+						color: var(--accent);
+					}
+				}
+
+				&::after {
+					content: "\203A";
+					line-height: 0.82;
+					font-size: 30px;
+					font-weight: 400;
+				}
+			}
+
+			&:last-child {
+				a {
+					white-space: nowrap;
+					color: var(--accent);
+					pointer-events: none;
+					user-select: none;
+					cursor: context-menu;
+				}
+			}
+		}
+	}
+
+	&.bc-all ul {
+		li {
+			a {
+				&:last-child {
+					pointer-events: all;
+					user-select: auto;
+					cursor: pointer;
+				}
+			}
+		}
+	}
+
+	&.breadcrumbs--dark {
+		ul {
+			li {
+				color: var(--dark);
+			}
+		}
+	}
+
+	&.breadcrumbs--offset {
+		margin: 30px 0 60px;
+	}
+}

@@ -1,0 +1,63 @@
+//fonts
+@mixin font-face($font-name, $path, $weight: normal, $style: normal, $uni: '') {
+	@font-face {
+		font-family: quote($font-name);
+		src:			
+			url(#{$path}.woff2) format("woff2"),			
+			url(#{$path}.ttf) format("truetype");
+		font-weight: $weight;
+		font-style: $style;
+		@if $uni != '' {
+			unicode-range: $uni;
+		 }
+	}
+}
+
+//@include miw768 {}
+@mixin miw768() {
+	@media (min-width: 769px) {
+		@content;
+	}
+}
+
+//@include mw1920 {}
+@mixin mw1920(){
+	@media (max-width: 1920px) {
+		@content;
+	}
+}
+
+//@include mw1440 {}
+@mixin mw1440(){
+	@media (max-width: 1440px) {
+		@content;
+	}
+}
+
+//@include mw1024 {}
+@mixin mw1024(){
+	@media (max-width: 1024px) {
+		@content;
+	}
+}
+
+// @include mw768 {}
+@mixin mw768(){
+	@media (max-width: 768px) {
+		@content;
+	}
+}
+
+// @include mw575 {}
+@mixin mw575(){
+	@media (max-width: 575px) {
+		@content;
+	}
+}
+
+// @include mw380 {}
+@mixin mw380(){
+	@media (max-width: 380px) {
+		@content;
+	}
+}

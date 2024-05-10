@@ -1,0 +1,7 @@
+/*	+mono-svg('loupe', 'navbar-icon', '0 0 30 30')
+ *	+img-svg('loupe', 'navbar-img', 'Увеличить фото') */
+
+.svg-icon { 
+	transition: fill 0.2s ease-in;
+	cursor: pointer;
+}

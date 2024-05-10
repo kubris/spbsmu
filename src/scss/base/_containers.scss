@@ -1,0 +1,19 @@
+.container {
+	margin: 0 auto;
+	padding: 0 var(--container-padding);
+	max-width: calc(var(--container-width) + (2 * var(--container-padding)));
+	width: 100%;
+}
+
+.container-right {
+	margin-left: calc( (100vw - (var(--container-width) + (2 * var(--container-padding)) ) ) / 2 + var(--container-padding) - 12px);
+	width: 1635px;
+	@include mw1920 {
+		width: calc(100% - (100vw - (var(--container-width) * var(--container-padding))) - var(--container-padding));
+	}
+	@include mw1440 {
+		margin-left: var(--container-padding);
+		margin-right: 0;
+		width: calc(100% - var(--container-padding));
+	}
+}

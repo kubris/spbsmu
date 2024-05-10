@@ -1,0 +1,30 @@
+section.draft-free.offset
+	.container
+		.draft-free__grid
+			.draft-free__grid-item
+				span.label Предварительный эскиз - БЕСПЛАТНО!
+				.h2 Узнайте как будет выглядеть ваша вывеска!
+				p.text Оставьте свои контактные данные и если у Вас нет тех. задания, мы нарисуем дизайн-макет и предложим несколько вариантов!
+				.callback.draft-free__form
+					form(class="callback-form jsForm")
+						.callback-form__fields
+							label
+								input(type="text" name="userName" placeholder="Имя")
+
+							label
+								input(type="tel" name="userPhone" placeholder="Телефон")
+						
+						textarea(name="userMessage" placeholder="Сообщение")
+						
+						label.callback__accept
+							input(class="v-hidden" type="checkbox" name="userAccept")
+							span(class="accept")
+								| Ознакомлен и согласен с&nbsp;
+								a(href="#") политикой обработки персональных данных
+						.tac
+							button(class="btn btn--accent btn--xl brs-8 draft-free__form-btn" type="submit") Отправить
+			
+			.draft-free__grid-item
+				.draft-free__grid-img
+					img(src="images/views.png", alt="")
+		

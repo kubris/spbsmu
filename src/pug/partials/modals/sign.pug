@@ -1,0 +1,34 @@
+//- start modal sign
+.sign-bg
+	.sign
+		button(class="sign-close")
+			+mono-svg('close')
+
+		.h2 Узнайте как будет смотреться <br>ваша вывеска!
+
+		p.text--sub14 Отправьте нам фото Вашей торговой точки или фасада любым удобным для вас способом, и в ответ получите фото с привязкой будущей вывески к месту!
+		
+		form(class="sign-form jsSignForm")
+			.sign-form__fields
+				label
+					input(type="text" name="userName" placeholder="Имя")
+
+				label
+					input(type="tel" name="userPhone" placeholder="Телефон")
+			
+			.sign-form__fields
+				label
+					input(type="text" name="userEmail" placeholder="Email")
+				label.btn.add-file
+					input(class="v-hidden" type="file" name="userFile")
+					+img-svg('arrow-up-circle')
+					| Прикрепить файл
+			
+			label.sign__accept
+				input(class="v-hidden" type="checkbox" name="userAccept")
+				span(class="accept")
+					| Ознакомлен и согласен с&nbsp;
+					a(href="#") политикой обработки персональных данных
+
+			button(class="btn btn--accent btn--lg brs-8" type="submit") Отправить
+//- end modal sign

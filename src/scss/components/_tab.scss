@@ -1,0 +1,28 @@
+// === BLOG
+.t {
+	// &h {&b {&.active {}}}
+	&b {
+		&c {
+			display: none;
+			&:first-child {display: block;}
+		}
+	}
+}
+
+// === TABS
+.hth {
+	.htb {
+		white-space: nowrap;
+		user-select: none;
+		transition: color 0.2s ease-out, background-color 0.2s ease-out, border-color 0.2s ease-out, box-shadow 0.2s ease-out, transform 0.2s ease-out;
+		cursor: pointer;
+		//&.active {}
+	}
+}
+
+.bth {
+	.btb {
+		display: none;
+		&:first-of-type {display: block;}
+	}
+}

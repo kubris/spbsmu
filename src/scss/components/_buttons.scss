@@ -1,0 +1,104 @@
+.btn {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	white-space: nowrap;
+	user-select: none;
+	transition: color 0.2s ease-out, background-color 0.2s ease-out, border-color 0.2s ease-out, box-shadow 0.2s ease-out, transform 0.2s ease-out;
+	font-family: var(--font-main);
+	font-weight: 500;
+	cursor: pointer;
+
+	&--accent {
+		background-color: var(--accent);
+		border: 1px solid var(--accent);
+		color: var(--white);
+
+		&:hover {
+			background-color: var(--accent-light);
+			border-color: var(--accent-light);
+			box-shadow: 0px 15px 25px -5px var(--gray200);
+		}
+
+		&:active {
+			box-shadow: 0px 4px 8px var(--gray200);
+			transform: scale(0.98);
+		}
+	}
+
+	&--white {
+		background-color: transparent;
+		border: 1px solid var(--white);
+		color: var(--white);
+
+		&:hover {
+			background-color: var(--accent-light);
+			color: var(--white);
+			border-color: var(--accent-light);
+			box-shadow: 0px 15px 25px -5px var(--gray200);
+		}
+
+		&:active {
+			box-shadow: 0px 4px 8px var(--gray200);
+			transform: scale(0.98);
+		}
+	}
+
+	&-arrow-accent {
+		display: flex;
+		align-items: center;
+		gap: 10px;
+		color: var(--accent);
+		font-weight: 500;
+		font-size: 18px;
+		line-height: 28px;
+		transition: color 0.2s ease-out;
+
+		svg {
+			fill: var(--accent)
+		}
+
+		&:hover {
+			color: var(--accent-light);
+
+			svg {
+				fill: var(--accent-light)
+			}
+		}
+	}
+
+	&--xl {
+		padding: 12px 23px;
+		line-height: 28px;
+	}
+
+	&--lg {
+		padding: 8px 18px
+	}
+
+	&--full {
+		width: 100%
+	}
+}
+
+.add-file {
+	padding: 12px 23px;
+	gap: 10px;
+	color: var(--accent);
+	border-radius: 12px;
+	justify-content: flex-start;
+	width: 100%;
+
+	&:hover {
+		box-shadow: 0 0 5px #ccc;
+	}
+
+	&:active {
+		box-shadow: inset 4px 4px 6px -1px rgba(0, 0, 0, 0.2),
+			inset -4px -4px 6px -1px rgba(255, 255, 255, 0.7),
+			-0.5px -0.5px 0px rgba(255, 255, 255, 1),
+			0.5px 0.5px 0px rgba(0, 0, 0, 0.15),
+			0px 12px 10px -10px rgba(0, 0, 0, 0.05);
+		transform: scale(0.98);
+	}
+}

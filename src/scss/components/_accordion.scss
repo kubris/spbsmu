@@ -1,0 +1,110 @@
+// -- start accordion
+.accordion {
+	&-wrapper {
+		max-width: 1056px;
+		margin: 0 auto;
+	}
+
+	&-btn {
+		position: relative;
+		margin-bottom: 30px;
+		padding: 20px 80px 26px 20px;
+		width: 100%;
+		text-align: left;
+		font-size: 20px;
+		line-height: 26px;
+		font-weight: 500;
+		box-shadow: 5px 5px 20px #a6abb133;
+		transition: 0.4s;
+		outline: none;
+		cursor: pointer;
+
+		@include mw768 {
+			font-size: 16px;
+			padding: 20px 70px 20px 20px;
+		}
+
+		&::after {
+			content: "";
+			position: absolute;
+			right: 20px;
+			top: 50%;
+			transform: translateY(-50%);
+			width: 32px;
+			height: 1px;
+			background-color: var(--accent);
+
+			@include mw768 {
+				right: 20px;
+				width: 26px;
+			}
+		}
+
+		&::before {
+			content: "";
+			position: absolute;
+			right: 35px;
+			top: 50%;
+			transform: translateY(-50%);
+			width: 1px;
+			height: 32px;
+			background-color: var(--accent);
+			transition: height 0.2s ease-in;
+
+			@include mw768 {
+				right: 32px;
+				height: 26px;
+			}
+		}
+
+		&.active::before {
+			height: 0;
+		}
+
+		&.active {
+			border-bottom: none;
+
+			&:last-of-type {
+				&+.accordion-content {
+					border-bottom: 1px solid var(--gray);
+				}
+			}
+		}
+	}
+
+	&-content {
+		padding-left: 20px;
+		padding-right: 20px;
+		max-height: 0;
+		overflow: hidden;
+		transition: max-height 0.2s ease-out;
+		font-size: 18px;
+		line-height: 28px;
+
+		@include mw768 {
+			font-size: 16px;
+			line-height: 26px;
+		}
+
+		& p:last-child {
+			padding-bottom: 20px;
+		}
+
+		& p+p {
+			margin-top: 15px;
+		}
+
+		ul,
+		li {
+			list-style-type: disc;
+			list-style-position: inside;
+		}
+
+		.acc-title {
+			margin: 10px 0 20px;
+			font-weight: 600;
+		}
+	}
+}
+
+// -- end accordion

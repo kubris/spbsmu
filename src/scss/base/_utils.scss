@@ -1,0 +1,180 @@
+.none {
+	display: none !important;
+}
+
+.no-scroll {
+	overflow: hidden !important;
+}
+
+.v-hidden {
+	position: absolute;
+	width: 1px !important;
+	height: 1px !important;
+	margin: -1px !important;
+	border: 0;
+	padding: 0 !important;
+	white-space: nowrap;
+	clip-path: inset(100%);
+	clip: rect(0 0 0 0);
+	overflow: hidden !important;
+}
+
+.tac {
+	text-align: center;
+}
+
+.acc-col {
+	color: var(--accent);
+}
+
+.acc-bg {
+	background-color: var(--accent);
+}
+
+.underline {
+	position: relative;
+	transition: color 0.2s ease-out;
+
+	&::after {
+		content: "";
+		position: absolute;
+		left: 0;
+		bottom: -5px;
+		display: block;
+		height: 1px;
+		width: 100%;
+		background-color: var(--accent);
+		opacity: 0;
+		transition: opacity 0.2s;
+	}
+
+	&:hover {
+		color: var(--accent-light);
+		&::after {
+			opacity: 1;
+			background-color: var(--accent-light);
+		}
+	}
+	
+	&:active {
+		color: var(--accent);
+		&::after {
+			opacity: 1;
+			background-color: var(--accent);
+		}
+	}
+
+	&.disable {
+		color: var(--gray400);
+
+		&::after {
+			background-color: var(--gray400);
+		}
+	}
+}
+
+#overlay {
+	position: fixed;
+	z-index: -1;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: #000000AA;
+	transition: opacity 0.25s ease-out;
+	pointer-events: none;
+	opacity: 0;
+	pointer-events: none;
+
+	&.show {
+		opacity: 1;
+		pointer-events: auto;
+		z-index: 99;
+	}
+}
+
+[data-postlink] {
+	cursor: pointer;
+}
+
+[data-moblink] {
+	cursor: auto;
+
+	@include mw768 {
+		cursor: pointer;
+	}
+}
+
+.show {
+	&-xxl {
+		display: block;
+
+		@include mw1024 {
+			display: none
+		}
+	}
+
+	&-xl {
+		display: block;
+
+		@include mw768 {
+			display: none
+		}
+	}
+
+	&-lg {
+		display: none;
+
+		@include mw1024 {
+			display: block
+		}
+
+		@include mw768 {
+			display: none
+		}
+	}
+
+	&-sm {
+		display: none;
+
+		@include mw768 {
+			display: block
+		}
+	}
+
+	&-f-sm {
+		display: none;
+
+		@include mw768 {
+			display: flex
+		}
+	}
+}
+
+.clap {
+	display: -webkit-box;
+	-webkit-line-clamp: 4;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+}
+
+//animation: show 0.3s linear;
+@keyframes show {
+	from {
+		opacity: 0;
+	}
+
+	to {
+		opacity: 1;
+	}
+}
+
+@keyframes hide {
+	from {
+		opacity: 1;
+	}
+
+	to {
+		opacity: 0;
+	}
+}

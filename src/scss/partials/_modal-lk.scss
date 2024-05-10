@@ -1,0 +1,132 @@
+//- modal LK
+.lk {
+	position: relative;
+	max-width: 580px;
+	width: 100%;
+	padding: 80px 60px 60px;
+	background: var(--gray200) url(../images/callback-bg.png) no-repeat;
+	background-position: 335% 45%;
+	color: var(--dark);
+	border-radius: 12px;
+	@include mw1024 {
+		padding: 60px 30px 40px;
+		margin: 0 24px;
+	}
+	@include mw768 {
+		margin: 0 20px;
+		padding: 60px 20px 40px;
+		background-size: 400px 480px;
+		background-position: 50% 50%;
+	}
+
+	@include mw575 {
+		margin: 0;
+		border-radius: 0;
+	}
+
+	&-bg {
+		transform: translateY(-150%);
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100vw;
+		height: 100%;
+		z-index: 12;
+		background: #111111cc;
+		transition: transform 0.5s ease-in-out;
+
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
+		&.show {
+			transform: translateY(0);
+		}
+	}
+
+	&>.h2 {
+		margin-bottom: 40px;
+		font-size: 32px;
+		font-weight: 500;
+		line-height: 38px;
+		color: var(--dark);
+		text-transform: uppercase;
+
+		@include mw768 {
+			margin-bottom: 5px;
+			font-size: 22px;
+		}
+	}
+
+	&-form {
+		&>label {
+			display: block;
+			width: 100%;
+		}
+		label + label {
+			margin-top: 30px;
+		}
+		button {
+			margin-top: 40px;
+		}
+	}
+
+	label {
+		&>input {
+			padding: 14px 20px;
+			height: 56px;
+			width: 100%;
+			font-size: 18px;
+			transition: box-shadow 0.2s;
+			background-color: #ffffff;
+			color: var(--dark);
+
+			&::placeholder {
+				color: var(--gray600);
+				font-size: 18px;
+				line-height: 28px;
+				font-weight: 500;
+			}
+
+			@include mw768 {
+				font-size: 14px
+			}
+
+			&:hover {
+				box-shadow: 0 0 6px #aaa;
+			}
+		}
+	}
+
+	&-close {
+		position: absolute;
+		right: 34px;
+		top: 34px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 32px;
+		height: 32px;
+		background-color: unset;
+		transition: transform 0.2s;
+		cursor: pointer;
+
+		@include mw768 {
+			right: 20px;
+			width: 20px;
+			height: 20px;
+		}
+
+		&>svg {
+			fill: var(--accent);
+		}
+
+		&:hover {
+			transform: scale(1.05)
+		}
+
+		&:active {
+			transform: scale(0.9)
+		}
+	}
+}

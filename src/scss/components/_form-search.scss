@@ -1,0 +1,17 @@
+.search-field {
+	input {
+		padding: 5px 20px 5px 30px;
+		width: 100%;
+		height: 60px;
+		font-size: 18px;
+		line-height: 28px;
+		font-weight: 500;
+		color: var(--dark);
+		font-family: var(--font-main);
+		border: 1px solid var(--gray400);
+
+		&::placeholder {
+			color: var(--gray600);
+		}
+	}
+}

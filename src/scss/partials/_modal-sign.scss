@@ -1,0 +1,198 @@
+//- modal-callback
+.sign {
+	position: relative;
+	max-width: 780px;
+	width: 100%;
+	padding: 80px 60px 60px;
+	background: var(--gray200) url(../images/callback-bg.png) no-repeat;
+	background-position: right center;
+	color: var(--dark);
+	border-radius: 12px;
+
+	@include mw1024 {
+		padding: 60px 30px 40px;
+		margin: 0 24px;
+	}
+	@include mw768 {
+		margin: 0 5px;
+		padding: 40px 20px;
+		background-position: center center;
+	}
+
+	&-bg {
+		transform: translateY(-150%);
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100vw;
+		height: 100%;
+		z-index: 12;
+		background: #111111cc;
+		transition: transform 0.5s ease-in-out;
+
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
+		&.show {
+			transform: translateY(0);
+		}
+	}
+
+	&>.h2 {
+		margin-bottom: 15px;
+		font-size: 32px;
+		font-weight: 500;
+		line-height: 38px;
+		color: var(--dark);
+		text-transform: uppercase;
+
+		@include mw768 {
+			margin-bottom: 5px;
+			font-size: 22px;
+		}
+	}
+
+	&>p {
+		margin-bottom: 35px;
+
+		@include mw768 {
+			margin-bottom: 10px;
+		}
+	}
+
+	&-form {
+		&__fields {
+			margin-bottom: 20px;
+			display: flex;
+			align-items: center;
+			gap: 20px;
+			@include mw575 {
+				flex-direction: column;
+			}
+
+			&>label {
+				display: inline-block;
+				width: 100%;
+			}
+		}
+	}
+
+	label {
+		&>input {
+			padding: 14px 20px;
+			height: 56px;
+			width: 100%;
+			font-size: 18px;
+			transition: box-shadow 0.2s;
+			background-color: #ffffff;
+			color: var(--dark);
+
+			@include mw768 {
+				font-size: 14px
+			}
+
+			&:hover {
+				box-shadow: 0 0 6px #aaa;
+			}
+		}
+	}
+
+	label>input::placeholder {
+		color: var(--gray600);
+		font-size: 18px;
+		line-height: 28px;
+		font-weight: 500;
+	}
+
+	&__accept {
+		display: block;
+		margin: 5px 0 25px;
+		@include mw768 {margin: 15px 0 20px}
+	}
+
+	.accept {
+		position: relative;
+		padding-left: 30px;
+		font-size: 14px;
+		line-height: 120%;
+
+		@include mw768 {
+			font-size: 12px
+		}
+
+		&::before {
+			content: '';
+			position: absolute;
+			left: 0;
+			top: 0;
+			display: inline-flex;
+			width: 16px;
+			height: 16px;
+			border-radius: 2px;
+			border: 1px solid var(--gray600);
+			transition: box-shadow 0.2s;
+		}
+
+		&::after {
+			position: absolute;
+			left: 2px;
+			top: 3px;
+			display: flex;
+			width: 12px;
+			height: 10px;
+			background: url(../images/svg/check.svg) center no-repeat;
+			background-size: contain;
+		}
+
+		&:hover::before,
+		&:focus::before {
+			box-shadow: 0 0 5px var(--dark-gray);
+		}
+
+		&>a {
+			text-decoration: underline;
+		}
+	}
+
+	input[type=checkbox]:checked+.accept::before {
+		background-color: var(--accent);
+		border-color: var(--accent);
+	}
+
+	input[type=checkbox]:checked+.accept::after {
+		content: '';
+	}
+
+	&-close {
+		position: absolute;
+		right: 34px;
+		top: 34px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 32px;
+		height: 32px;
+		background-color: unset;
+		transition: transform 0.2s;
+		cursor: pointer;
+
+		@include mw768 {
+			right: 20px;
+			width: 20px;
+			height: 20px;
+		}
+
+		&>svg {
+			fill: var(--accent);
+		}
+
+		&:hover {
+			transform: scale(1.05)
+		}
+
+		&:active {
+			transform: scale(0.9)
+		}
+	}
+}

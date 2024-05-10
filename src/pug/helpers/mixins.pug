@@ -1,0 +1,41 @@
+//- start svg sprite - по hover цвет меняется только с миксином "mono-svg"
+mixin mono-svg(name, cls, vb)
+	- cls = cls || ''
+	- vb = vb || false
+	svg(class="svg-icon " + cls)&attributes({'viewbox': vb})
+		use(xlink:href="images/sprite/sprite-mono.svg#" + name)
+
+mixin img-svg(name, cls, alter)
+	- cls = cls || ''
+	- alter = alter || ''
+	img(class="svg-img" + ' ' + cls src="images/svg/" + name + '.svg' alt=alter)
+
+//- start breadcrumb
+//- items:крошки с сылками; last: последняя крошка, cls: доп.класс к блоку обёртке, links: ссылки на страницы по порядку, вместе с последней
+mixin breadcrumb(items, last, cls, links)
+	- cls= cls || '' 
+	div(class="breadcrumbs" + ' ' + cls)
+		- let i = 0;
+		ul&attributes({
+			'itemscope':'', 
+			'itemtype':'https://schema.org/BreadcrumbList'})
+			each item in items
+				li&attributes({
+				'itemprop':'itemListElement',
+				'itemscope':'',
+				'itemtype':'https://schema.org/ListItem'
+				})
+					if (item.length === 1)
+						span.breadcrumb__link= item
+						meta(itemprop='position' content=i++)
+					else
+						a(href="" + links[i], title=item, itemprop='item')
+							span= item
+							meta(itemprop='position' content=i++)
+
+			if last
+				li
+					a(href='' + links[i], title=item, itemprop='item')
+						span= last
+						meta(itemprop='position' content=i)
+//- end breadcrumb
