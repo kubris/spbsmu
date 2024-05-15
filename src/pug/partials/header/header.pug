@@ -3,16 +3,16 @@ header.header
 		.container
 			.header__top-wrapper
 				button.header__top-city
-					+mono-svg('map', 'i-city')
+					+mono-svg('map', 'header__top-logo')
 					| Санкт-Петербург
 
 				.header__top-btns
 					.header__top-links
-						a(class="top-btns__tel" href="tel:+78007757098") 
+						a(class="top-btns__tel" href="tel:+7(904)0000000") 
 							+mono-svg('i-tel')
-							| +7 (800) 775-70-98
+							| +7(904)0000000
 						.divider |
-						a(class="top-btns__email" href="mailto:hello@vid-group.ru") hello@vid-group.ru
+						a(class="top-btns__email" href="mailto:info@spbsmu.ru") info@spbsmu.ru
 					.header__top-socials
 						a(href="javascript:")
 							+img-svg('col-wa')
@@ -25,65 +25,38 @@ header.header
 			a.navbar-logo(href="/")
 				+img-svg('logo')
 
-			ul.navbar__list
-				li
-					span Услуги
-					ul.navbar__list-drop
+			.header__bottom-list
+				.header__bottom-block
+					ul.navbar__list
+						li.navbar__list-dropitem
+							span Услуги
+							ul.navbar__list-drop
+								li
+									a(href="service.html") Все услуги
+								li
+									a(href="service-page.html") Строительно-монтажные работы 
+								li
+									a(href="service-page.html") Благоустройство территории
+								li
+									a(href="service-page.html") Металлические работы
+								li
+									a(href="service-page.html") Каменные работы
+								li
+									a(href="service-page.html") Бетонные работы (монолит)
+								li
+									a(href="service-page.html") Деревянные работы
+								li
+									a(href="service-page.html") Дорожные работы
 						li
-							a(href="services.html") Все услуги
+							a(href="projects.html") Наши работы
 						li
-							a(href="services-page.html") Объемные буквы
-						li
-							a(href="services-page.html") Световые короба
-						li
-							a(href="services-page.html") Неоновые панели
-						li
-							a(href="services-page.html") Панель-кронштейн
-						li
-							a(href="services-page.html") Таблички и указатели
-						li
-							a(href="services-page.html") Стеллы и пилоны
-						li
-							a(href="services-page.html") Крышные установки
-						li
-							a(href="services-page.html") Установка и демонтаж вывесок
-						li
-							a(href="services-page.html") Согласование вывесок
-						li
-							a(href="services-page.html") Комплексное оформление объектов
-				li
-					span О компании
-					ul.navbar__list-drop
-						li
-							a(href="lk.html") Личный кабинет
-						li
-							a(href="prices.html") Цены
-						li
-							a(href="sign.html") Как заказать вывеску
-						li
-							a(href="error-404.html") Вакансии
-				li
-					a(href="projects.html") Наши работы
-				li
-					span Блог
-					ul.navbar__list-drop
+							a(href="about.html") О компании
 						li
 							a(href="blog.html") Блог
 						li
-							a(href="blog-page.html") Новости
-						li
-							a(href="blog-page.html") Полезные статьи
-						li
-							a(href="blog-page.html") Справочные статьи по продуктам
-				li
-					a(href="contacts.html") Контакты
-			
-			.bottom-btns
-				button.btn.btn--accent.btn--lg.brs-8.jsOpenModal Заказать звонок
-				button.btn.btn--trans-accent.btn--lg.brs-8.jsOpenLK
-					+img-svg('person')
-					| Войти
-			button.bottom-btns__search.jsOpenSearch
-					+mono-svg('search')
-			button(class="navbar-toggler jsMobMenu")
+							a(href="contacts.html") Контакты
+				
+				button.btn.btn--accent.btn--lg.btn--fz16.jsOpenModal Заказать звонок
+
+			button.burger(type="button")
 				span

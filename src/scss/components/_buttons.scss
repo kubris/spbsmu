@@ -44,6 +44,12 @@
 		}
 	}
 
+	&--fz16 {
+		font-size: 16px;
+		line-height: 130%;
+		font-weight: 500;
+	}
+
 	&-arrow-accent {
 		display: flex;
 		align-items: center;
@@ -67,18 +73,9 @@
 		}
 	}
 
-	&--xl {
-		padding: 12px 23px;
-		line-height: 28px;
-	}
-
-	&--lg {
-		padding: 8px 18px
-	}
-
-	&--full {
-		width: 100%
-	}
+	&--xl {padding: 14px 50px}
+	&--lg {padding: 11px 26px}
+	&--full {width: 100%}
 }
 
 .add-file {

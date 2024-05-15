@@ -4,25 +4,24 @@
 		button(class="callback-close")
 			+mono-svg('close')
 
-		.h2 Закажите обратный звонок
+		.h2 Свяжитесь с нами
 
-		p.text--sub14 Оставьте контактные данные и мы связжемся с вами
+		p.sub-h2 Оставьте свои контактные данные и мы вам перезвоним
 		
 		form(class="callback-form jsForm")
-			.callback-form__fields
-				label
-					input(type="text" name="userName" placeholder="Имя")
+			label
+				input(type="text" name="userName" placeholder="Имя")
 
-				label
-					input(type="tel" name="userPhone" placeholder="Телефон")
+			label
+				input(type="tel" name="userPhone" placeholder="Телефон")
 			
 			textarea(name="userMessage" placeholder="Сообщение")
 			
 			label
 				input(class="v-hidden" type="checkbox")
 				span(class="accept")
-					| Ознакомлен и согласен с&nbsp;
-					a(href="#") политикой обработки персональных данных
+					| Согласен с политикой&nbsp;
+					a(href="#") обработки персональных данных
 
-			button(class="btn btn--accent btn--lg brs-8" type="submit") Отправить
+			button(class="btn btn--accent btn--lg" type="submit") Отправить
 //- end modal callback

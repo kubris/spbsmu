@@ -50,14 +50,16 @@
 
 	&:hover {
 		color: var(--accent-light);
+
 		&::after {
 			opacity: 1;
 			background-color: var(--accent-light);
 		}
 	}
-	
+
 	&:active {
 		color: var(--accent);
+
 		&::after {
 			opacity: 1;
 			background-color: var(--accent);
@@ -74,22 +76,17 @@
 }
 
 #overlay {
-	position: fixed;
-	z-index: -1;
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	background-color: #000000AA;
-	transition: opacity 0.25s ease-out;
-	pointer-events: none;
-	opacity: 0;
-	pointer-events: none;
-
-	&.show {
-		opacity: 1;
+	&::after {
+		content: '';
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background-color: #000b2133;
+		transition: opacity 0.25s ease-out;
 		pointer-events: auto;
-		z-index: 99;
+		z-index: 1;
 	}
 }
 

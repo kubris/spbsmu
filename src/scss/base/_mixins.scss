@@ -14,8 +14,8 @@
 }
 
 //@include miw768 {}
-@mixin miw768() {
-	@media (min-width: 769px) {
+@mixin miw1024() {
+	@media (min-width: 1025px) {
 		@content;
 	}
 }

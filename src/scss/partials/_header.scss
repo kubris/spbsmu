@@ -1,40 +1,36 @@
 .header {
-	@include mw1024 {
-		padding: 10px 0
-	}
+	padding: 15px 0;
+	background-color: var(--gray100);
+	position: relative;
+	z-index: 2;
 
 	@include mw768 {
-		padding-top: 0;
+		padding: 12px 0;
 	}
 
 	&__top {
 		margin-bottom: 15px;
-		padding: 10px 0;
-		background-color: var(--gray200);
-
-		@include mw1024 {
-			display: none
-		}
-
-		@include mw768 {
-			display: block;
-			background-color: var(--accent);
-		}
 
 		&-wrapper {
+			padding-bottom: 15px;
 			display: flex;
 			align-items: center;
 			justify-content: space-between;
-			@include mw768 {justify-content: center;}
+			border-bottom: 1px solid var(--gray400);
+		}
+
+		&-logo {
+			width: 17px;
+			height: 17px;
+			fill: var(--dark);
 		}
 
 		&-city {
 			display: inline-flex;
 			align-items: center;
 			gap: 10px;
-			color: var(--gray600);
-			font-weight: 500;
-			font-size: 18px;
+			color: var(--dark);
+			font-size: 16px;
 
 			.i-city {
 				width: 18px;
@@ -42,8 +38,8 @@
 				fill: var(--gray600);
 			}
 
-			@include mw768 {
-				display: none
+			@include mw1024 {
+				display: none;
 			}
 		}
 
@@ -51,6 +47,15 @@
 			display: flex;
 			align-items: center;
 			gap: 40px;
+
+			@include mw1024 {
+				width: 100%;
+				justify-content: space-between;
+			}
+
+			@include mw768 {
+				gap: 20px;
+			}
 		}
 
 		&-links {
@@ -58,17 +63,20 @@
 			gap: 20px;
 
 			&>a {
-				color: var(--gray600);
+				color: var(--dark);
+				font-size: 16px;
+				line-height: 150%;
 				font-weight: 500;
 				transition: color 0.2s ease-out;
+
 				&:hover {
 					color: var(--accent);
 				}
 
 				@include mw768 {
-					color: var(--white);
-					font-weight: 400;
-					font-size: 14px;
+					&>svg {
+						display: none
+					}
 				}
 			}
 
@@ -88,8 +96,12 @@
 			align-items: center;
 			gap: 30px;
 
+			@include mw1024 {
+				margin-left: auto;
+			}
+
 			@include mw768 {
-				display: none
+				gap: 20px
 			}
 
 			&>a {
@@ -115,6 +127,10 @@
 		&-search {
 			margin-left: -10px;
 
+			@include mw768 {
+				margin-left: 0;
+			}
+
 			svg {
 				fill: var(--gray600);
 				transition: transform 0.2s ease-out;
@@ -131,9 +147,58 @@
 					transform: scale(0.95);
 				}
 			}
+		}
+	}
 
-			@include mw768 {
-				display: none
+	&__bottom {
+		position: relative;
+		@include mw575 {
+			position: static;
+		}
+
+		&-block {
+			display: flex;
+			align-items: center;
+			width: 100%;
+			justify-content: center;			
+		}
+
+		&-list {
+			width: 100%;
+			display: flex;
+			gap: 30px;
+
+			@include mw1024 {
+				padding: 30px 20px;
+				position: absolute;
+				top: calc(100% + 15px);
+				right: 0;
+				display: flex;
+				flex-direction: column;
+				gap: 60px;
+				max-width: 400px;
+				background-color: var(--white);
+				z-index: -10;
+				opacity: 0;
+				pointer-events: none;
+				transition: opacity 0.2s ease-out;
+
+				&.show {
+					z-index: 1;
+					opacity: 1;
+					pointer-events: auto;
+				}
+			}
+			@include mw575 {
+				top: calc(100% + 2px);
+				left: 0;
+				min-height: calc(100vh - 120px);
+				max-width: unset;
+
+				.jsOpenModal {
+					margin-top: auto;
+				}
+				
 			}
 		}
 	}
@@ -147,7 +212,7 @@
 	flex-wrap: wrap;
 
 	@include mw1024 {
-		margin-left: auto
+		margin-left: auto;
 	}
 
 	@include mw768 {
@@ -161,37 +226,6 @@
 
 		@include mw1024 {
 			display: none;
-		}
-	}
-
-	&__search {
-		display: none;
-		width: 24px;
-		height: 24px;
-
-		@include mw1024 {
-			display: block
-		}
-
-		@include mw768 {
-			margin-left: auto
-		}
-
-		svg {
-			fill: var(--gray600);
-			transition: transform 0.2s ease-out;
-		}
-
-		&:hover {
-			svg {
-				transform: scale(1.1);
-			}
-		}
-
-		&:active {
-			svg {
-				transform: scale(0.95);
-			}
 		}
 	}
 }
