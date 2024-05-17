@@ -17,7 +17,6 @@ body {
 	color: var(--dark);
 
 	background-color: var(--gray100);
-	overflow-x: hidden;
 
 	@include mw768 {
 		font-size: 1.6rem;

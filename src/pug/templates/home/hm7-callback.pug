@@ -1,0 +1,23 @@
+section.offset.home-callback
+	.container
+		.home-callback__form
+			.img
+				img(src="images/callback.jpg", alt="")
+			.form
+				.h2 Закажите обратный звонок
+				p Оставьте контактную информацию и в ближайшее время с вами свяжется наш сотрудник.
+				form
+					.form-row
+						label
+							input(type="text" name="userName" placeholder="Имя")
+
+						label
+							input(type="text" name="userPhone" placeholder="Телефон")
+					
+					label.accept
+						input(class="v-hidden" type="checkbox")
+						span
+							| Согласен с политикой&nbsp;
+							a(href="#") обработки персональных данных
+					button.btn.btn--accent.btn--lg.btn--fz16 Отправить
+		

@@ -1,0 +1,48 @@
+.home-article {
+
+	&__wrapper {
+		margin: 0 auto;
+		width: 100%;
+		max-width: 887px;
+
+		.btn {
+			margin-top: 40px;
+			.small {display: none;}
+			&.full-height {
+				.big {display: none;}
+				.small {display: inline;}
+			}
+		}
+	}
+
+	&__content {
+		
+		max-height: 270px;
+		overflow: hidden;
+		transition: max-height 0.4s ease-out;
+		@include mw1024 {
+			max-width: unset;
+		}
+		@include mw575 {
+			max-height: 540px;
+		}
+		
+		&.full-height {
+			max-height: 1000px;
+		}
+
+		.h2 {
+			margin-bottom: 30px;
+		}
+
+		p {
+			font-size: 16px;
+			line-height: 150%;
+			color: var(--dark);
+
+			&+p {
+				margin-top: 15px;
+			}
+		}
+	}
+}

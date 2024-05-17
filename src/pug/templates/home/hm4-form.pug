@@ -1,0 +1,30 @@
+section.offset.home-form
+	.home-form__block
+		.home-form__block-info
+			.h2 Свяжитесь с нами
+			span Вы можете связаться с нами любым удобным для вас способом
+			.connects
+				a(href="tel:+79040000000") 
+					+mono-svg('i-tel')
+					| +7(904)0000000
+				a(href="https://t.me/spbsmu") 
+					+mono-svg('i-tg')
+					| @spbsmu
+				a(href="mailto:info@spbsmu.ru")
+					+mono-svg('i-eml')
+					| info@spbsmu.ru
+				a(href="https://wa.me/79040000000") 
+					+mono-svg('i-tel')
+					| +7(904)0000000
+		.home-form__block-form
+			form.h-form
+				.h-form__text Или оставьте свои контактные данные и мы вам перезвоним
+				input(type="text" placeholder="Имя")
+				input(type="text" placeholder="Телефон")
+				textarea(name="h-text" placeholder="Телефон")
+				label.accept
+					input(class="v-hidden" type="checkbox")
+					span
+						| Согласен с политикой&nbsp;
+						a(href="#") обработки персональных данных
+				button.btn.btn--accent.btn--lg.btn--fz16(type="button") Отправить

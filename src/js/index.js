@@ -107,7 +107,7 @@ if (burgerBtn) {
 
 // === start DROP ITEM
 const dropItems = document.querySelectorAll('.navbar__list-dropitem');
-if(dropItems.length > 0) {
+if (dropItems.length > 0) {
 	dropItems.forEach((item) => {
 		item.addEventListener('click', (e) => {
 			e.currentTarget.classList.toggle('show');
@@ -170,53 +170,6 @@ if (document.querySelector(".search-bg")) {
 }
 // === end MODAL SEARCH
 
-// === start MODAL SEARCH
-if (document.querySelector(".lk-bg")) {
-	const btnsOpen = document.querySelectorAll(".jsOpenLK");
-	const modalWin = document.querySelector(".lk-bg");
-	const closeWin = document.querySelector(".lk-close");
-
-	btnsOpen.forEach((btn) => {
-		btn.addEventListener("click", (event) => {
-			modalWin.classList.add("show");
-			disableScroll();
-		});
-	});
-
-	closeWin.addEventListener("click", (event) => {
-		modalWin.classList.remove("show");
-		enableScroll();
-	});
-
-	document.body.addEventListener('keydown', function (e) {
-		if (e.key == "Escape" && modalWin.classList.contains("show")) {
-			modalWin.classList.remove("show");
-			enableScroll();
-		}
-	});
-}
-// === end MODAL SEARCH
-
-// === start MODAL SIGN
-if (document.querySelector(".sign-bg")) {
-	const btnsOpen = document.querySelectorAll(".jsSignModal");
-	const modalWin = document.querySelector(".sign-bg");
-	const closeWin = document.querySelector(".sign-close");
-
-	btnsOpen.forEach((btn) => {
-		btn.addEventListener("click", (event) => {
-			modalWin.classList.add("show");
-			disableScroll();
-		});
-	});
-
-	closeWin.addEventListener("click", (event) => {
-		modalWin.classList.remove("show");
-		enableScroll();
-	});
-}
-// === end MODAL SIGN
-
 // === start FOOTER LIST DROP
 const foolistTitle = document.querySelectorAll('.foo-list__title');
 if (foolistTitle.length > 0) {
@@ -274,6 +227,37 @@ if (document.querySelector(".jsCatList")) {
 // === end ROLL-LIST
 
 // === start TABS SCRIPT
+const fadeIn = (el, timeout, display) => {
+	el.style.opacity = 0;
+	el.style.display = display || "block";
+	el.style.transition = `opacity ${timeout}ms`;
+	setTimeout(() => {
+		el.style.opacity = 1;
+	}, 10);
+};
+
+const fadeOut = (el, timeout) => {
+	el.style.opacity = 1;
+	el.style.transition = `opacity ${timeout}ms`;
+	el.style.opacity = 0;
+
+	setTimeout(() => {
+		el.style.display = "none";
+	}, timeout);
+};
+
+function hideAll(els) {
+	els.forEach((item) => {
+		item.style.display = "none";
+	});
+}
+
+function delAllActiveBtns(els) {
+	els.forEach((item) => {
+		item.contains.classList = "active" ? item.classList.remove("active") : false;
+	});
+}
+
 if (document.querySelector(".htb") && document.querySelector(".btb")) {
 	const btns = document.querySelectorAll(".htb");
 	const blocks = document.querySelectorAll(".btb");
@@ -422,3 +406,140 @@ if (pg) {
 	*/
 }
 // === end PAGINATION
+
+// === start HOME OBJECTS SLIDER
+if (document.querySelector('.home-objects__grid')) {
+	let hoInit = false;
+	let hoSwiper;
+	function swiperCard() {
+		if (window.innerWidth <= 767) {
+			if (!hoInit) {
+				hoInit = true;
+				hoSwiper = new Swiper(".home-objects__grid", {
+					slidesPerView: 1.2,
+					spaceBetween: 20,
+				});
+			}
+		} else if (hoInit) {
+			hoSwiper.destroy();
+			hoInit = false;
+		}
+	}
+	swiperCard();
+	window.addEventListener("resize", swiperCard);
+}
+// === end HOME OBJECTS SLIDER
+
+// === start HOME OBJECTS SLIDER
+if (document.querySelector('.home-testimonials__grid')) {
+	let htInit = false;
+	let htSwiper;
+	function swiperCard() {
+		if (window.innerWidth <= 767) {
+			if (!htInit) {
+				htInit = true;
+				htSwiper = new Swiper(".home-testimonials__grid", {
+					slidesPerView: 1.2,
+					spaceBetween: 20,
+				});
+			}
+		} else if (htInit) {
+			htSwiper.destroy();
+			htInit = false;
+		}
+	}
+	swiperCard();
+	window.addEventListener("resize", swiperCard);
+}
+// === end HOME OBJECTS SLIDER
+
+// === start HOME OBJECTS SLIDER
+if (document.querySelector('.home-news__slider')) {
+	const newSwiper = new Swiper(".home-news__slider", {
+		slidesPerView: 1.2,
+		spaceBetween: 0,
+		loop: true,
+		breakpoints: {
+			480: {
+				slidesPerView: 2.2
+			},
+			1024: {
+				slidesPerView: 3
+			}
+		}
+	});
+}
+// === end HOME OBJECTS SLIDER
+
+// === start CARD-TEXT MODAL 
+const btns = document.querySelectorAll(".jsTestiBtn");
+if (btns.length > 0) {
+	const modal = document.createElement("div");
+	modal.classList.add("card-modal");
+
+	modal.innerHTML = `
+		<button class="card-close"><svg class="svg-icon"><use xlink:href="images/sprite/sprite-mono.svg#close"></use></svg></button>
+		<span class="card-name">Firm name</span>
+		<p class="card-text">Firm description</p>
+	`;
+	document.body.appendChild(modal);
+
+	const modalClose = modal.querySelector(".card-close");
+
+	btns.forEach((btn) => {
+		btn.addEventListener("click", function () {
+			showModal(this, modal);
+		});
+	});
+
+	modalClose.addEventListener("click", () => {
+		modal.classList.remove("show");
+	});
+}
+
+function showModal(el, m) {
+	let cName = el.closest(".swiper-slide").querySelector("span").innerText;
+	let cText = el.closest(".swiper-slide").querySelector("p").innerText;
+	m.classList.add("show");
+	m.querySelector(".card-name").innerText = cName;
+	m.querySelector(".card-text").innerText = cText;
+}
+// === end CARD-TEXT MODAL 
+
+// === start A FEW SWIPER
+const hbSwipers = document.querySelectorAll(".home-blog__swiper");
+if(hbSwipers.length > 0) {
+	hbSwipers.forEach(value => {
+		let hbSwiper = new Swiper(value, {
+			slidesPerView: 1.2,
+			spaceBetween: 20,
+			freemode: true,
+			//init: false,
+			breakpoints: {
+				768: {
+					slidesPerView: 2.2,
+				},
+				1024: {
+					slidesPerView: 4,
+				},
+			},
+			observer: true,
+			observerParents: true
+		});
+	});
+}
+// === end A FEW SWIPER
+
+// === start READ MORE
+if (document.querySelector(".jsReadMore")) {
+	const readMoreBtns = document.querySelectorAll(".jsReadMore");
+
+	readMoreBtns.forEach((rmBtn) => {
+		rmBtn.addEventListener("click", (e) => {
+			e.currentTarget.previousElementSibling.classList.toggle("full-height");
+			e.currentTarget.classList.toggle("full-height");
+		});
+	});
+}
+// === end READ MORE
+

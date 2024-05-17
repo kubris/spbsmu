@@ -1,0 +1,129 @@
+.hh-grid {
+	display: grid;
+	grid-template-columns: 3fr 2fr 2fr;
+	grid-template-rows: 220px 170px 170px 140px;
+	overflow: hidden;
+	@include mw1024 {
+		grid-template-rows: 178px 138px 138px;
+	}
+	@include mw768 {
+		grid-template-columns: repeat(2, 1fr);
+		grid-template-rows: 142px 106px 108px;
+	}
+
+	&__item {
+		position: relative;
+		background-color: transparent;
+
+		&:nth-child(1) {
+			grid-row: 1 / 4;
+			display: flex;
+			flex-direction: column;
+			justify-content: flex-end;			
+			.text {
+				padding: 20px;
+				background-color: var(--gray100);
+			}
+			@include mw1024 {
+				.text {padding: 10px 20px;}
+			}
+			@include mw768 {
+				grid-row: 1 / 2;
+				.text {display: none;}
+			}
+		}
+		&:nth-child(3) {
+			@include mw768 {
+				grid-row: 2 / 4;
+			}
+		}
+		&:nth-child(4) {
+			grid-row: 2 / 4;
+			margin-bottom: -10px;
+			border-bottom: 20px solid var(--gray100);
+			@include mw1024 {
+				margin-bottom: 0;
+				border: none;
+			}
+			@include mw768 {
+				display: none;
+			}
+		}
+		&:nth-child(5) {
+			.text {
+				padding: 20px;
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				height: 100%;
+				background-color: var(--gray100);
+				&>i {
+					font-style: normal;
+					font-size: 42px;
+					font-weight: 500;
+					line-height: 1;
+				}
+			}
+		}
+		&:nth-child(6) {
+			margin-bottom: -10px;
+			border-bottom: 20px solid var(--gray100);
+			@include mw1024 {
+				margin-bottom: 0;
+				border: none;
+			}
+		}
+		&:nth-child(8) {grid-row: 3 / 5;}
+		&:nth-child(7),
+		&:nth-child(8) {display: none;}
+
+		&::after {
+			content: '';
+			position: absolute;
+			inset: 0;
+			box-shadow: 0 0 0 10px var(--gray100);
+			pointer-events: none;
+			@include mw1024 {
+				box-shadow: 0 0 0 8px var(--gray100);
+			}
+		}
+	}
+}
+
+.home-hero {
+	margin-top: 20px;
+	@include mw1024 {margin-top: 22px;}
+	@include mw768 {margin-top: 10px;}
+
+	&__block {
+		display: grid;
+		grid-template-columns: repeat(12, 1fr);		
+		grid-gap: 20px;
+		@include mw1024 {
+			display: flex;
+			flex-direction: column;
+			gap: 40px;
+		}
+		@include mw768 {gap: 20px;}
+
+		&-content {
+			grid-column: 1 / 6;
+			.h1 {
+				margin-top: 120px;
+				margin-bottom: 20px;
+				@include mw1024 {margin-top: 0}
+				@include mw768 {margin-bottom: 15px}
+			}
+			p {
+				margin-bottom: 40px;
+				@include mw768 {margin-bottom: 30px;}
+			}
+		}
+
+		&-grid {
+			grid-column: 6 / 13;
+			background: url('../uploads/home/bg-hero.jpg') center no-repeat;
+			background-size: cover;
+		}
+	}
+}

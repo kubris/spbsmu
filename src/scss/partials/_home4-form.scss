@@ -1,0 +1,134 @@
+.home-form {
+	margin-left: auto;
+	margin-right: auto;
+	max-width: 1114px;
+	width: 100%;
+	background-color: var(--white);
+	box-shadow: 0 3px 16px #6866661A;
+	@include mw1024 {
+		max-width: 660px;
+	}
+	@include mw768 {
+		margin-left: 20px;
+		margin-right: 20px;
+		width: auto;
+	}
+
+	&__block {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		grid-gap: 20px;
+		@include mw1024 {
+			grid-template-columns: 1fr;
+			grid-gap: 40px;
+			margin: 0 auto;
+			padding: 40px 0;
+			max-width: 433px;
+			width: 100%;
+		}
+		@include mw768 {
+			padding: 30px 20px;
+			grid-gap: 30px;
+		}
+
+		&-info {
+			padding: 40px 0 40px 114px;
+			background-image: url('../images/form-bg.png');
+			background-repeat: no-repeat;
+			background-size: 85% 100%;
+			background-position: center left;
+			.h2 {
+				margin-bottom: 15px;
+				& + span {
+					display: block;
+					margin-bottom: 50px;
+					max-width: 320px;
+					font-size: 16px;
+					line-height: 150%;
+					@include mw768 {
+						margin-bottom: 30px;
+					}
+				}
+				@include mw768 {
+					font-size: 22px;
+					line-height: 130%;
+				}
+			}
+			@include mw1024 {
+				padding: 0;
+				background: unset;
+			}
+		}
+
+		&-form {
+			padding: 40px 114px 40px 0;
+			@include mw1024 {padding: 0;}
+			@include mw768 {
+				.accept {
+					margin-top: -5px;
+					margin-bottom: 10px;
+					&>span {
+						flex-wrap: wrap;
+						&::after {
+							left: 2px;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+.connects {
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-gap: 20px;
+	transition: color 0.2s ease-out;
+	@include mw1024 {
+		grid-template-columns: 1fr 1fr;
+	}
+	@include mw768 {
+		grid-template-columns: 1fr;
+	}
+
+	&>a {
+		display: flex;
+		align-items: center;
+		gap: 15px;
+		&:hover {color: var(--accent);}
+
+		.svg-icon {
+			width: 22px;
+			fill: var(--accent);
+		}
+	}
+}
+
+.h-form {
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+
+	&__text {
+		font-size: 16px;
+		line-height: 150%;
+		color: var(--dark);
+	}
+	input,
+	textarea {
+		padding: 18px 20px;
+		background-color: var(--gray100);
+		font-size: 16px;
+		font-weight: 500;
+		line-height: 130%;
+		border: 1px solid var(--gray400);
+		width: 100%;
+	}
+	textarea {height: 110px;}
+	.btn {
+		align-self: start;
+		@include mw768 {
+			align-self: unset;
+		}
+	}
+}

@@ -73,9 +73,46 @@
 		}
 	}
 
-	&--xl {padding: 14px 50px}
-	&--lg {padding: 11px 26px}
-	&--full {width: 100%}
+	&--xl {
+		padding: 14px 50px
+	}
+
+	&--lg {
+		padding: 11px 26px
+	}
+
+	&--full {
+		width: 100%
+	}
+
+	&--link {
+		padding: 0 5px;
+		position: relative;
+		color: var(--accent);
+		@include mw768 {
+			align-self: flex-start;
+		}
+
+		&::after {
+			content: "";
+			position: absolute;
+			left: 0;
+			bottom: -4px;
+			display: block;
+			height: 100%;
+			max-height: 1px;
+			width: 100%;
+			background-color: var(--accent);
+			transition: max-height 0.15s ease-out, bottom 0.15s ease-out;
+		}
+
+		&:hover {
+			&::after {
+				max-height: 3px;
+				bottom: -7px;
+			}
+		}
+	}
 }
 
 .add-file {
