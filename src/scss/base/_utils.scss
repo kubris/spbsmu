@@ -31,6 +31,7 @@
 	background-color: var(--accent);
 }
 
+
 .underline {
 	position: relative;
 	transition: color 0.2s ease-out;
@@ -91,6 +92,11 @@
 	}
 }
 
+.mb40-sm30 {
+	margin-bottom: 40px !important;
+	@include mw768 {margin-bottom: 30px !important}
+}
+
 #overlay {
 	&::after {
 		content: '';
@@ -131,6 +137,11 @@
 			display: none!important;
 		}
 	}
+	&-n-xl {
+		@include mw768 {
+			display: none!important;
+		}
+	}
 
 	&-lg {
 		display: none;
@@ -153,7 +164,7 @@
 	}
 
 	&-f-sm {
-		display: none;
+		display: none !important;
 		@include mw768 {
 			display: flex!important;
 		}

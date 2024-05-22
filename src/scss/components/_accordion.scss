@@ -3,20 +3,22 @@
 	&-wrapper {
 		max-width: 1056px;
 		margin: 0 auto;
+		border-bottom: 1px solid var(--gray400);
+		@include mw1024 {margin: 0 54px;}
+		@include mw768 {margin: 0 20px;}
 	}
 
 	&-btn {
 		position: relative;
-		margin-bottom: 30px;
-		padding: 20px 80px 26px 20px;
+		padding: 22px 80px 22px 20px;
 		width: 100%;
 		text-align: left;
 		font-size: 20px;
 		line-height: 26px;
 		font-weight: 500;
-		box-shadow: 5px 5px 20px #a6abb133;
 		transition: 0.4s;
 		outline: none;
+		border-top: 1px solid var(--gray400);
 		cursor: pointer;
 
 		@include mw768 {

@@ -1,0 +1,47 @@
+.ab-grid {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	grid-gap: 50px 20px;
+	@include mw1024 {
+		grid-template-columns: repeat(2, 1fr);
+	}
+	@include mw768 {
+		grid-template-columns: 1fr;
+	}
+
+	&__item {
+		display: flex;
+		flex-direction: column;
+		gap: 20px;
+
+		.svg-img {
+			width: 60px;
+			height: 60px;
+		}
+	}
+}
+
+.about {
+	&__benefits {
+		display: grid;
+		grid-template-columns: repeat(12, 1fr);
+		@include mw1024 {
+			grid-template-columns: 1fr;
+		}
+
+		&-block {
+			grid-column: 2 / 11;
+			@include mw1024 {
+				grid-column: auto;
+			}
+		}
+
+		.h2 {
+			margin-bottom: 50px;
+
+			@include mw768 {
+				margin-bottom: 40px;
+			}
+		}
+	}
+}

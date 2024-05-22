@@ -1,0 +1,52 @@
+.project-page__other {
+	.sub-dot {
+		margin-bottom: 15px;
+	}
+}
+
+.ppo-more {
+	margin-top: 40px;
+	text-align: center;
+
+	@include mw768 {
+		margin: 40px 20px 0;
+		&>.btn {
+			max-width: 360px;
+			width: 100%;
+		}
+	}
+}
+
+.ppo-slider {
+	.swiper-wrapper {
+		align-items: stretch;
+	}
+
+	.swiper-slide {
+		padding: 20px;
+		background-color: var(--white);
+		height: auto;
+
+		.img {
+			margin-bottom: 15px;
+
+			img {
+				aspect-ratio: 318 / 280;
+				width: 100%;
+				object-fit: cover;
+			}
+		}
+
+		.h3 {
+			margin-bottom: 10px;
+		}
+
+		&>span {
+			display: block;
+
+			&+span {
+				margin-top: 10px;
+			}
+		}
+	}
+}

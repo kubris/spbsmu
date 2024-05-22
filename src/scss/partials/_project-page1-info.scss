@@ -1,0 +1,60 @@
+.project-page {
+	.breadcrumbs {
+		margin: 20px 0;
+		@include mw768 {margin: 10px 0 20px;}
+	}
+
+	&__hero {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		grid-gap: 20px;
+		@include mw1024 {
+			grid-template-columns: 1fr;
+			grid-gap: 40px;
+		}
+
+		.content {
+			.h1 {
+				margin: 60px 0 40px;
+				text-transform: uppercase;
+				@include mw1024 {margin: 0 0 20px;}
+				@include mw768 {margin-bottom: 20px;}
+			}
+			.grid {
+				display: grid;
+				grid-template-columns: repeat(2, 1fr);
+				grid-gap: 40px 20px;
+				@include mw768 {
+					grid-template-columns: 1fr;
+					grid-gap: 20px;
+				}
+
+				&-item {
+					.title {
+						margin-bottom: 20px;
+						font-size: 16px;
+						font-weight: 500;
+						line-height: 130%;
+						color: var(--gray600);
+						text-transform: uppercase;
+						@include mw768 {margin-bottom: 10px;}
+					}
+					&>span {
+						font-size: 18px;
+					}
+				}
+			}
+			@include mw1024 {
+				grid-row: 2 / 3;
+			}
+		}
+
+		.img {
+			img {
+				aspect-ratio: 660 / 480;
+				width: 100%;
+				object-fit: cover;
+			}
+		}
+	}
+}

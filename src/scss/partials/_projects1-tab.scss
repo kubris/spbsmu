@@ -1,0 +1,94 @@
+.projects {
+	&__block {
+		margin: 0 auto;
+		max-width: 1114px;
+		width: 100%;
+
+		.h2 {
+			margin-bottom: 20px;
+			text-transform: uppercase;
+		}
+	}
+
+	&__tab {
+		&>ul {
+			margin: 50px 0 40px;
+			display: flex;
+			gap: 20px;
+			flex-wrap: wrap;
+			@include mw768 {
+				margin: 40px 0 30px;
+				gap: 16px;
+			}
+
+			li {
+				button {
+					padding: 12px 23px;
+					background-color: var(--white);
+					font-size: 16px;
+					line-height: 130%;
+					font-weight: 500;
+					@include mw768 {padding: 8px 14px;}
+				}
+				&.active {
+					button {
+						background-color: var(--accent);
+						color: var(--white);
+					}
+				}
+			}
+		}
+
+		&-grid {
+			display: grid;
+			grid-template-columns: repeat(3, 1fr);
+			grid-gap: 20px;
+			@include mw1024 {
+				grid-template-columns: repeat(2, 1fr);
+			}
+			@include mw768 {
+				grid-template-columns: 1fr;
+				grid-gap: 40px;
+			}
+		}
+		&-item {
+			padding: 20px;
+			background-color: var(--white);
+			box-shadow: var(--shadow);
+			@include mw1024 {
+				&:nth-child(odd):last-child {
+					display: none;
+				}
+			}
+
+			.img {
+				margin-bottom: 15px;
+				img {
+					aspect-ratio: 318 / 280;
+					width: 100%;
+					object-fit: cover;
+					@include mw768 {
+						max-height: 280px;
+						aspect-ratio: 280 / 280;
+					}
+				}
+			}
+
+			.text {
+				display: flex;
+				flex-direction: column;
+				gap: 10px;
+
+				&>span {
+					font-size: 16px;
+					line-height: 150%;
+				}
+			}
+		}
+
+		.pagination-wrapper {
+			margin-top: 60px;
+			@include mw768 {margin-top: 40px;}
+		}
+	}
+}
