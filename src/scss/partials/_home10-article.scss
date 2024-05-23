@@ -15,11 +15,21 @@
 		}
 	}
 
-	&__content {
-		
+	&__content {		
 		max-height: 270px;
 		overflow: hidden;
 		transition: max-height 0.4s ease-out;
+		position: relative;
+		&::after {
+			content: '';
+			position: absolute;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			height: 40px;
+			background: linear-gradient(180deg, rgba(237,240,244,0) 0%, rgba(237,240,244,1) 100%);
+		}
+
 		@include mw1024 {
 			max-width: unset;
 		}
@@ -29,6 +39,9 @@
 		
 		&.full-height {
 			max-height: 1000px;
+			&::after {
+				opacity: 0;
+			}
 		}
 
 		.h2 {

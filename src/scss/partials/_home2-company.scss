@@ -8,7 +8,10 @@
 	position: sticky;
 	top: 10px;
 	z-index: 1;
-	overflow: hidden;	
+	overflow: hidden;
+	@include mw768 {
+		grid-template-rows: 90px 64px 58px 214px;
+	}
 
 	&__item {
 		position: relative;
