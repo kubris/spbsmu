@@ -514,7 +514,7 @@ if (spaSwipers) {
 			1024: {
 				slidesPerView: 2.8,
 				spaceBetween: 20,
-				
+
 			},
 			1440: {
 				slidesPerView: 4,
@@ -586,3 +586,57 @@ if (document.querySelector('.ppo-slider')) {
 	});
 }
 // === end PROJECT-PAGE SLIDER
+
+// === start DROP BLOG
+const bdd = document.querySelectorAll('.bg-cats');
+if (bdd.length > 0) {
+	bdd.forEach((el) => {
+		el.addEventListener('click', () => {
+			el.querySelector('.h3').classList.toggle('open');
+		});
+	});
+	window.addEventListener('resize', () => {
+		bdd.forEach((el) => {
+			el.querySelector('.h3').classList.remove('open');
+		});
+	});
+}
+// === end DROP BLOG
+
+// === start SMOOTH-SCROLL TO ANCHOR
+const anhors = document.querySelectorAll('a[href^="#"]');
+if (anhors.length > 0) {
+	anhors.forEach(anchor => {
+		anchor.addEventListener('click', function (e) {
+			e.preventDefault();
+			try {
+				document.querySelector(this.getAttribute('href')).scrollIntoView({
+					behavior: 'smooth'
+				});
+			} catch {
+				console.warn('Is working the script for smooth transition to links. You need to remove the "#" symbol in the href="#" for the script to work correctly. For example, replace it with href="javascript:"');
+			}
+		});
+	});
+}
+// === end SMOOTH-SCROLL TO ANCHOR
+
+// === start BLOG-PAGE SLIDER
+if (document.querySelector('.bp-slider')) {
+	const newSwiper = new Swiper(".bp-slider", {
+		slidesPerView: 1.2,
+		spaceBetween: 16,
+		loop: true,
+		breakpoints: {
+			768: {
+				slidesPerView: 2.2,
+				spaceBetween: 20
+			},
+			1024: {
+				slidesPerView: 4,
+				spaceBetween: 20
+			}
+		}
+	});
+}
+// === end BLOG-PAGE SLIDER

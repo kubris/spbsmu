@@ -1,0 +1,75 @@
+.faq-page {
+	&__block {
+		display: grid;
+		grid-template-columns: repeat(12, 1fr);
+		grid-gap: 20px;
+		@include mw1024 {
+			grid-template-columns: 1fr;
+		}
+
+		.accordion {
+			&-wrapper {
+				grid-column: 3 / 11;
+				border-bottom: none;
+				@include mw1024 {
+					margin: 0;
+					grid-column: auto;
+					max-width: unset;
+				}
+			}
+
+			&-btn {
+				padding: 22px 70px 22px 20px;
+				margin-top: 30px;
+				border-top: none;
+				background-color: var(--white);
+
+				font-size: 18px;
+				line-height: 140%;
+				font-weight: 500;
+
+				box-shadow: var(--shadow);
+
+				@include mw768 {
+					padding: 16px 55px 16px 10px;
+					margin-top: 20px;
+					font-size: 16px;
+				}
+
+				&::before {
+					height: 30px;
+					right: 34px;
+				}
+				&::after {
+					width: 30px;
+				}
+
+				&:first-of-type {
+					margin-top: 0;
+				}
+
+				&.active {
+					box-shadow: unset;
+					&::before {
+						height: 0;
+					}
+				}
+			}
+
+			&-content {
+				background-color: var(--white);
+				padding-right: 70px;
+
+				p {
+					font-size: 16px;
+					& + p {
+						margin-top: 10px;
+					}
+				}
+				ul:last-of-type {
+					padding-bottom: 20px;
+				}
+			}
+		}
+	}
+}

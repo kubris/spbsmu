@@ -1,0 +1,29 @@
+.bp-slider {
+	overflow: hidden;
+	.swiper-slide {
+		.img {
+			img {
+				aspect-ratio: 320 / 260;
+				width: 100%;
+				object-fit: cover;
+			}
+		}
+		&>span {
+			display: block;
+			margin: 10px 0;
+			font-size: 16px;
+			color: var(--gray600);
+		}
+		.title {
+			min-height: 42px;
+			margin-bottom: 10px;
+			font-size: 16px;
+			font-weight: 500;
+			line-height: 130%;
+		}
+		&>p {
+			font-size: 16px;
+			line-height: 150%;
+		}
+	}
+}
